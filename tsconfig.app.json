@@ -27,7 +27,8 @@
       "types": ["./types"],
       "utils": ["./utils"],
       "state": ["./state"],
-      "theme": ["./theme"]
+      "theme": ["./theme"],
+      "translations": ["./translations"]
     }
   },
   "include": ["src"]

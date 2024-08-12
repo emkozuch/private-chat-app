@@ -18,6 +18,7 @@ export default defineConfig({
       utils: resolve(__dirname, "src/utils"),
       state: resolve(__dirname, "src/state"),
       theme: resolve(__dirname, "src/theme"),
+      translations: resolve(__dirname, "src/translations"),
     },
   },
 });
