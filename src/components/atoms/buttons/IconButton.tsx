@@ -1,12 +1,17 @@
-import { ButtonHTMLAttributes, ReactElement } from "react";
+import { ButtonHTMLAttributes } from "react";
 import styled from "styled-components";
+import { AppIcon, IconNames } from "../AppIcon";
 
 type Props = {
-  icon: ReactElement;
+  iconName: IconNames;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const IconButton = ({ icon, ...props }: Props) => {
-  return <StyledButton {...props}>{icon}</StyledButton>;
+export const IconButton = ({ iconName, ...props }: Props) => {
+  return (
+    <StyledButton {...props}>
+      <AppIcon iconName={iconName} />
+    </StyledButton>
+  );
 };
 
 const StyledButton = styled.button`

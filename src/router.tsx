@@ -1,16 +1,43 @@
 import { createBrowserRouter } from "react-router-dom";
-import { LoginPage, CenteredPageContainer } from "components";
+import {
+  LoginPage,
+  ChatsPage,
+  SettingsPage,
+  RequestsPage,
+  ProtectedPage,
+} from "components";
 import { Routes } from "utils";
 import App from "./App";
 import { RequestAccessPage } from "components";
+import { RedirectAuthenticatedPage } from "components/pages/RedirectAuthenticatedPage";
 
 export const router = createBrowserRouter([
   {
-    path: "/",
-    element: <App />,
+    element: <ProtectedPage />,
+    children: [
+      {
+        element: <App />,
+        path: Routes.root,
+        children: [
+          {
+            path: Routes.chats,
+            element: <ChatsPage />,
+          },
+          {
+            path: Routes.settings,
+            element: <SettingsPage />,
+          },
+          {
+            path: Routes.requestsList,
+            element: <RequestsPage />,
+          },
+        ],
+      },
+    ],
   },
+
   {
-    element: <CenteredPageContainer />,
+    element: <RedirectAuthenticatedPage />,
     children: [
       {
         path: Routes.login,

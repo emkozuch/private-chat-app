@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import {
-  AppIcon,
   IconButton,
   IconNames,
   Loader,
@@ -45,7 +44,7 @@ export const RequestAccessPage = () => {
           <IconButton
             disabled={isRequestingAccess}
             type="submit"
-            icon={<AppIcon iconName={IconNames.send} />}
+            iconName={IconNames.send}
           />
         )}
       </StyledForm>

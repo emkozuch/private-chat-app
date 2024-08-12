@@ -25,7 +25,7 @@ export const LoginPage = () => {
 
   useEffect(() => {
     if (isLoggedIn) {
-      navigate(Routes.root);
+      navigate(Routes.chats);
     }
   }, [isLoggedIn, navigate]);
 

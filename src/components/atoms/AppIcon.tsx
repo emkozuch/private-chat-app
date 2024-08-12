@@ -2,9 +2,13 @@ import {
   Eye,
   EyeOff,
   LoaderCircle,
+  LogOut,
   LucideProps,
+  MailQuestion,
+  MessageSquare,
   RectangleEllipsis,
   SendHorizontal,
+  Settings,
   UserRound,
 } from "lucide-react";
 import React, { ForwardRefExoticComponent } from "react";
@@ -17,6 +21,10 @@ export enum IconNames {
   eye = "eye",
   eyeClosed = "eyeClosed",
   send = "send",
+  message = "message",
+  settings = "settings",
+  requests = "requests",
+  logout = "logout",
 }
 
 type Props = {
@@ -38,6 +46,10 @@ export const AppIcon = ({ iconName, ...props }: Props) => {
     eye: Eye,
     eyeClosed: EyeOff,
     send: SendHorizontal,
+    message: MessageSquare,
+    settings: Settings,
+    requests: MailQuestion,
+    logout: LogOut,
   };
   const IconComponent: IconComponent = icons[iconName as keyof typeof icons];
 
