@@ -6,3 +6,8 @@ export interface ApiError extends SerializedError {
     detailedMessage: string;
   };
 }
+
+export type LoginRequestDto = {
+  email: string;
+  password: string;
+};

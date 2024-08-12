@@ -1,1 +1,9 @@
-{}
+{
+  "FORMS_VALIDATION_FIELD_ERROR": "This field is required.",
+  "FORMS_LOGIN_EMAIL_PLACEHOLDER": "Email",
+  "FORMS_LOGIN_PASSWORD_PLACEHOLDER": "Password",
+  "PAGES_LOGIN_TITLE": "Welcome to Private Chat!",
+  "PAGES_LOGIN_JOIN_MSG": "Want to join?",
+  "PAGES_LOGIN_JOIN_LINK": "Send request",
+  "PAGES_LOGIN_BUTTON": "Sign in"
+}
