@@ -19,12 +19,14 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
+    "baseUrl": "./src",
     "paths": {
       "api": ["./api"],
       "components": ["./components"],
       "hooks": ["./hooks"],
       "types": ["./types"],
-      "utils": ["./utils"]
+      "utils": ["./utils"],
+      "state": ["./state"]
     }
   },
   "include": ["src"]
