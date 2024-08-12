@@ -11,13 +11,12 @@ import {
   MessageBox,
   PasswordInput,
   TextInput,
+  Typography,
 } from "components";
 import { useLoginForm } from "hooks";
-
 import { Routes } from "utils";
 import { flexColumn } from "theme";
 import { TKeys } from "translations";
-import { Typography } from "components/atoms/typography";
 
 export const LoginPage = () => {
   const { formik, loginError, isLoggedIn, isLoggingIn } = useLoginForm();

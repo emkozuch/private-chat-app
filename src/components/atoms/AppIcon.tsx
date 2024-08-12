@@ -4,6 +4,7 @@ import {
   LoaderCircle,
   LucideProps,
   RectangleEllipsis,
+  SendHorizontal,
   UserRound,
 } from "lucide-react";
 import React, { ForwardRefExoticComponent } from "react";
@@ -15,6 +16,7 @@ export enum IconNames {
   password = "password",
   eye = "eye",
   eyeClosed = "eyeClosed",
+  send = "send",
 }
 
 type Props = {
@@ -35,6 +37,7 @@ export const AppIcon = ({ iconName, ...props }: Props) => {
     password: RectangleEllipsis,
     eye: Eye,
     eyeClosed: EyeOff,
+    send: SendHorizontal,
   };
   const IconComponent: IconComponent = icons[iconName as keyof typeof icons];
 

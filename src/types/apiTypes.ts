@@ -11,3 +11,7 @@ export type LoginRequestDto = {
   email: string;
   password: string;
 };
+
+export type RequestAccessRequestDto = {
+  email: string;
+};

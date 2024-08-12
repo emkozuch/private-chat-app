@@ -5,5 +5,9 @@
   "PAGES_LOGIN_TITLE": "Welcome to Private Chat!",
   "PAGES_LOGIN_JOIN_MSG": "Want to join?",
   "PAGES_LOGIN_JOIN_LINK": "Send request",
-  "PAGES_LOGIN_BUTTON": "Sign in"
+  "PAGES_LOGIN_BUTTON": "Sign in",
+  "PAGES_REQUEST_ACCESS_TITLE": "Request access",
+  "PAGES_REQUEST_ACCESS_SUBTITLE1": "To join this chat, you need admin approval.",
+  "PAGES_REQUEST_ACCESS_SUBTITLE2": "Please enter your email address, and we will notify you once your access is granted.",
+  "PAGES_REQUEST_ACCESS_SUCCESS": "Your request has been successfully sent. You will receive an email at the provided address once it has been processed."
 }
