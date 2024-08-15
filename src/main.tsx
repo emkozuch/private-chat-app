@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import { persistor, store } from "state";
 import { AppThemeProvider } from "theme";
 import { RouterProvider } from "react-router-dom";
-import { router } from "./router.tsx";
+import { router } from "router";
 import { PersistGate } from "redux-persist/integration/react";
 
 createRoot(document.getElementById("root")!).render(

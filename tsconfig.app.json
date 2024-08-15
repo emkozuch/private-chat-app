@@ -28,7 +28,8 @@
       "utils": ["./utils"],
       "state": ["./state"],
       "theme": ["./theme"],
-      "translations": ["./translations"]
+      "translations": ["./translations"],
+      "router": ["./router"]
     }
   },
   "include": ["src"]

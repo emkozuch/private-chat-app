@@ -19,6 +19,7 @@ export default defineConfig({
       state: resolve(__dirname, "src/state"),
       theme: resolve(__dirname, "src/theme"),
       translations: resolve(__dirname, "src/translations"),
+      router: resolve(__dirname, "src/router"),
     },
   },
 });

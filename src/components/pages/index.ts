@@ -5,3 +5,4 @@ export * from "./RequestsPage";
 export * from "./ChatsPage";
 export * from "./LoadingPage";
 export * from "./ProtectedPage";
+export * from "./ProtectedAdminPage";
