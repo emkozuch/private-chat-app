@@ -8,39 +8,44 @@ import { centeredFlexContainer } from "theme";
 
 import { NavbarItem } from "./NavbarItem";
 import { useLogout } from "hooks/useLogout";
+import { useAppSelector } from "state";
 
 export const Navbar = () => {
   const theme = useTheme();
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  const avatarUrl =
+    useAppSelector((s) => s.user?.profile?.avatarUrl) ?? "../avatar.jpg";
+  const isAdmin = useAppSelector((s) => s.user?.profile?.role) === "admin";
 
   const { handleLogout, isLoggedOut, isLoggingOut, logoutError } = useLogout();
 
   const items = useMemo(
-    () => [
-      {
-        name: "chats",
-        path: Routes.chats,
-        iconName: IconNames.message,
-        isActive: pathname === Routes.chats,
-        isAdminRoute: false,
-      },
-      {
-        name: "settings",
-        path: Routes.settings,
-        iconName: IconNames.settings,
-        isActive: pathname === Routes.settings,
-        isAdminRoute: false,
-      },
-      {
-        name: "requests",
-        path: Routes.requestsList,
-        iconName: IconNames.requests,
-        isActive: pathname === Routes.requestsList,
-        isAdminRoute: true,
-      },
-    ],
-    [pathname, theme]
+    () =>
+      [
+        {
+          name: "chats",
+          path: Routes.chats,
+          iconName: IconNames.message,
+          isActive: pathname === Routes.chats,
+          isAdminRoute: false,
+        },
+        {
+          name: "settings",
+          path: Routes.settings,
+          iconName: IconNames.settings,
+          isActive: pathname === Routes.settings,
+          isAdminRoute: false,
+        },
+        {
+          name: "requests",
+          path: Routes.requestsList,
+          iconName: IconNames.requests,
+          isActive: pathname === Routes.requestsList,
+          isAdminRoute: true,
+        },
+      ].filter((item) => (!isAdmin ? item.isAdminRoute === false : item)),
+    [pathname, theme, isAdmin]
   );
 
   useEffect(() => {
@@ -54,7 +59,7 @@ export const Navbar = () => {
       <div>
         <AvatarContainer>
           <Link to="/">
-            <Avatar size={60} imgSrc="../avatar.jpg" />
+            <Avatar size={60} imgSrc={avatarUrl} />
           </Link>
         </AvatarContainer>
         {items.map((item) => {

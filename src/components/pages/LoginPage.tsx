@@ -27,7 +27,7 @@ export const LoginPage = () => {
     if (isLoggedIn) {
       navigate(Routes.chats);
     }
-  }, [isLoggedIn, navigate]);
+  }, [isLoggedIn]);
 
   return (
     <Content>

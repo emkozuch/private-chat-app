@@ -15,3 +15,13 @@ export type LoginRequestDto = {
 export type RequestAccessRequestDto = {
   email: string;
 };
+
+export type UserRoles = "admin" | "user";
+
+export type UserProfileResponseDto = {
+  email?: string;
+  avatarUrl?: string;
+  firstName?: string;
+  lastName?: string;
+  role?: UserRoles;
+};
