@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, ReactElement } from "react";
+import { InputHTMLAttributes } from "react";
 import { useTranslation } from "react-i18next";
 
 import styled from "styled-components";
@@ -7,7 +7,7 @@ import { AppIcon, IconNames } from "../AppIcon";
 
 type BaseProps = {
   placeholder?: string;
-  icon?: ReactElement;
+  iconName?: IconNames;
   showError: boolean;
   error?: string;
 } & InputHTMLAttributes<HTMLInputElement>;
@@ -25,7 +25,7 @@ export type TextInputProps = BaseProps & (WithAction | WithoutAction);
 
 export const TextInput = ({
   placeholder,
-  icon,
+  iconName,
   action,
   actionIconName,
   showError,
@@ -38,7 +38,11 @@ export const TextInput = ({
     <div>
       <Container>
         <InputContainer>
-          {icon && <CenteredFlexContainer>{icon}</CenteredFlexContainer>}
+          {iconName && (
+            <CenteredFlexContainer>
+              <AppIcon iconName={iconName} />
+            </CenteredFlexContainer>
+          )}
           <Input type="text" placeholder={placeholder} {...props} />
         </InputContainer>
 

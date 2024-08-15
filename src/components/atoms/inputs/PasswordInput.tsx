@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { AppIcon, IconNames, TextInput, TextInputProps } from "components";
+import { IconNames, TextInput, TextInputProps } from "components";
 import { TKeys } from "translations";
 
 export const PasswordInput = (props: TextInputProps) => {
@@ -18,7 +18,7 @@ export const PasswordInput = (props: TextInputProps) => {
       {...props}
       placeholder={t(TKeys.FORMS_LOGIN_PASSWORD_PLACEHOLDER)}
       type={showPass ? "text" : "password"}
-      icon={<AppIcon iconName={IconNames.password} />}
+      iconName={IconNames.password}
       action={handleShowPass}
       actionIconName={actionIconName}
     />

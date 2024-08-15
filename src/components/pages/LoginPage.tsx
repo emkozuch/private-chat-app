@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
 import {
-  AppIcon,
   AppLink,
   Button,
   IconNames,
@@ -36,7 +35,7 @@ export const LoginPage = () => {
         <TextInput
           disabled={isLoggingIn}
           name="email"
-          icon={<AppIcon iconName={IconNames.user} />}
+          iconName={IconNames.user}
           placeholder={t(TKeys.FORMS_LOGIN_EMAIL_PLACEHOLDER)}
           value={formik.values.email}
           onChange={formik.handleChange}
