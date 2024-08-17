@@ -1,6 +1,6 @@
 import { Theme } from "types";
 
-export const sharedTokens = {
+export const sharedTokens: Omit<Theme, "colors"> = {
   typography: {
     fontFamily: "'Roboto', sans-serif",
     fontSize: {
@@ -25,11 +25,16 @@ export const sharedTokens = {
     },
   },
   breakpoints: {
-    xs: "480px",
-    sm: "768px",
-    md: "1024px",
-    lg: "1200px",
-    xl: "1440px",
+    mobileXs: 320,
+    mobileSm: 375,
+    mobileMd: 425,
+    mobileLg: 600,
+    mobileXl: 768,
+    desktopSm: 1024,
+    desktopMd: 1366,
+    desktopLg: 1440,
+    desktopXl: 1920,
+    desktopXXL: 2560,
   },
   spacing: {
     none: "0px",

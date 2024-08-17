@@ -19,6 +19,10 @@ export const protectedRoutes: RouteObject = {
           path: Routes.settings,
           element: <SettingsPage />,
         },
+        {
+          path: Routes.profile,
+          element: <>Profile Page</>,
+        },
         adminRoutes,
       ],
     },

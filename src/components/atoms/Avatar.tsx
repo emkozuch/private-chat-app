@@ -2,17 +2,18 @@ import { useTranslation } from "react-i18next";
 import styled, { css } from "styled-components";
 
 type Props = {
-  imgSrc: string;
+  imgSrc?: string;
   isActive?: boolean;
   size?: number;
 };
 
 export const Avatar = ({ imgSrc, isActive, size }: Props) => {
   const { t } = useTranslation();
+  const src = imgSrc ?? "../avatar.jpg";
 
   return (
     <Container $isActive={isActive}>
-      <Img size={size} src={imgSrc} alt={t("accessibility.alts.avatar")} />
+      <Img size={size} src={src} alt={t("accessibility.alts.avatar")} />
     </Container>
   );
 };

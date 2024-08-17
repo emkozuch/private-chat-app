@@ -23,11 +23,16 @@ interface Typography {
 }
 
 interface Breakpoints {
-  xs: string;
-  sm: string;
-  md: string;
-  lg: string;
-  xl: string;
+  mobileXs: number;
+  mobileSm: number;
+  mobileMd: number;
+  mobileLg: number;
+  mobileXl: number;
+  desktopSm: number;
+  desktopMd: number;
+  desktopLg: number;
+  desktopXl: number;
+  desktopXXL: number;
 }
 
 interface Spacing {

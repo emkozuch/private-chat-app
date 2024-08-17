@@ -1,71 +1,42 @@
-import styled, { useTheme } from "styled-components";
-import { Avatar, IconNames, Loader } from "components";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useMemo } from "react";
+import styled from "styled-components";
+import { Avatar, IconNames, LogoutOverlay } from "components";
+import { Link } from "react-router-dom";
 import { Routes } from "utils";
-import { useEffect, useMemo } from "react";
 import { IconButton } from "components/atoms/buttons/IconButton";
 import { centeredFlexContainer } from "theme";
 
-import { NavbarItem } from "./NavbarItem";
+import { NavbarLink } from "./NavbarLink";
 import { useLogout } from "hooks/useLogout";
 import { useAppSelector } from "state";
+import { desktopNavbarConfig } from "./navbarConfig";
+import { useLogoutRedirect } from "hooks";
+import { sharedTokens } from "theme/tokens";
 
 export const Navbar = () => {
-  const theme = useTheme();
-  const { pathname } = useLocation();
-  const navigate = useNavigate();
-  const avatarUrl =
-    useAppSelector((s) => s.user?.profile?.avatarUrl) ?? "../avatar.jpg";
+  const { handleLogout, isLoggedOut, isLoggingOut, logoutError } = useLogout();
+  const avatarUrl = useAppSelector((s) => s.user?.profile?.avatarUrl);
   const isAdmin = useAppSelector((s) => s.user?.profile?.role) === "admin";
 
-  const { handleLogout, isLoggedOut, isLoggingOut, logoutError } = useLogout();
-
-  const items = useMemo(
-    () =>
-      [
-        {
-          name: "chats",
-          path: Routes.chats,
-          iconName: IconNames.message,
-          isActive: pathname === Routes.chats,
-          isAdminRoute: false,
-        },
-        {
-          name: "settings",
-          path: Routes.settings,
-          iconName: IconNames.settings,
-          isActive: pathname === Routes.settings,
-          isAdminRoute: false,
-        },
-        {
-          name: "requests",
-          path: Routes.requestsList,
-          iconName: IconNames.requests,
-          isActive: pathname === Routes.requestsList,
-          isAdminRoute: true,
-        },
-      ].filter((item) => (!isAdmin ? item.isAdminRoute === false : item)),
-    [pathname, theme, isAdmin]
+  const { userItems, adminItems } = desktopNavbarConfig;
+  const navbarItems = useMemo(
+    () => (isAdmin ? [...userItems, ...adminItems] : userItems),
+    [isAdmin]
   );
 
-  useEffect(() => {
-    if (isLoggedOut && !logoutError) {
-      navigate(Routes.login);
-    }
-  }, [isLoggedOut, logoutError, navigate]);
+  useLogoutRedirect(isLoggedOut, logoutError);
 
   return (
     <Container>
       <div>
         <AvatarContainer>
-          <Link to="/">
+          <Link to={Routes.profile}>
             <Avatar size={60} imgSrc={avatarUrl} />
           </Link>
         </AvatarContainer>
-        {items.map((item) => {
+        {navbarItems.map((item) => {
           return (
-            <NavbarItem
-              isActive={item.isActive}
+            <NavbarLink
               to={item.path}
               key={item.name}
               iconName={item.iconName}
@@ -80,24 +51,17 @@ export const Navbar = () => {
           iconName={IconNames.logout}
         />
       </LogoutContainer>
-      {isLoggingOut && (
-        <LogoutOverlay>
-          <Loader />
-        </LogoutOverlay>
-      )}
+      {isLoggingOut && <LogoutOverlay />}
     </Container>
   );
 };
 
-const LogoutOverlay = styled.div`
-  ${centeredFlexContainer}
-  position: absolute;
-  z-index: 3;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: ${({ theme }) => theme.colors.modalBackground};
+const Container = styled.div`
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: ${sharedTokens.spacing.md};
+  background-color: ${({ theme }) => theme.colors.primaryDark};
 `;
 
 const LogoutContainer = styled.div`
@@ -113,13 +77,5 @@ const LogoutContainer = styled.div`
 
 const AvatarContainer = styled.div`
   cursor: pointer;
-  padding: ${({ theme }) => theme.spacing.sm};
-`;
-
-const Container = styled.div`
-  justify-content: space-between;
-  display: flex;
-  flex-direction: column;
-  padding-bottom: ${({ theme }) => theme.spacing.md};
-  background-color: ${({ theme }) => theme.colors.primaryDark};
+  padding: ${sharedTokens.spacing.sm};
 `;

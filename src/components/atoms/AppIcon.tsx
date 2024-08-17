@@ -1,4 +1,5 @@
 import {
+  Ellipsis,
   Eye,
   EyeOff,
   LoaderCircle,
@@ -6,10 +7,13 @@ import {
   LucideProps,
   MailQuestion,
   MessageSquare,
+  Plus,
   RectangleEllipsis,
+  Search,
   SendHorizontal,
   Settings,
   UserRound,
+  X,
 } from "lucide-react";
 import React, { ForwardRefExoticComponent } from "react";
 import { useTheme } from "styled-components";
@@ -25,6 +29,10 @@ export enum IconNames {
   settings = "settings",
   requests = "requests",
   logout = "logout",
+  search = "search",
+  close = "close",
+  plus = "plus",
+  elipsis = "elipsis",
 }
 
 type Props = {
@@ -50,6 +58,10 @@ export const AppIcon = ({ iconName, ...props }: Props) => {
     settings: Settings,
     requests: MailQuestion,
     logout: LogOut,
+    search: Search,
+    close: X,
+    plus: Plus,
+    elipsis: Ellipsis,
   };
   const IconComponent: IconComponent = icons[iconName as keyof typeof icons];
 
