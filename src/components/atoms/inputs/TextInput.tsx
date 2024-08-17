@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import { centeredFlexContainer } from "theme";
 import { AppIcon, IconNames } from "../AppIcon";
+import { sharedTokens } from "theme/tokens";
 
 type BaseProps = {
   placeholder?: string;
@@ -35,7 +36,7 @@ export const TextInput = ({
   const { t } = useTranslation();
 
   return (
-    <div>
+    <>
       <Container>
         <InputContainer>
           {iconName && (
@@ -46,16 +47,16 @@ export const TextInput = ({
           <Input type="text" placeholder={placeholder} {...props} />
         </InputContainer>
 
-        {action && actionIconName && (
-          <CenteredFlexContainer>
+        <CenteredFlexContainer>
+          {action && actionIconName && (
             <ActionBtn type="button" onClick={action}>
               <AppIcon iconName={actionIconName} />
             </ActionBtn>
-          </CenteredFlexContainer>
-        )}
+          )}
+        </CenteredFlexContainer>
       </Container>
       {showError && error && <ErrorMsg>{t(error)}</ErrorMsg>}
-    </div>
+    </>
   );
 };
 
@@ -66,7 +67,8 @@ const InputContainer = styled.div`
 `;
 
 const CenteredFlexContainer = styled.div`
-  ${centeredFlexContainer}
+  ${centeredFlexContainer};
+  min-width: ${sharedTokens.typography.fontSize.large};
 `;
 
 const ActionBtn = styled.button`
@@ -82,6 +84,7 @@ const ActionBtn = styled.button`
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
+  flex: 1;
   gap: ${(props) => props.theme.spacing.md};
   height: 25px;
   border: 2px solid ${(props) => props.theme.colors.border};

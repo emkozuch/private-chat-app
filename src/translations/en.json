@@ -15,5 +15,7 @@
   "NAVBAR_ITEMS_SETTINGS": "Settings",
   "NAVBAR_ITEMS_PROFILE": "Profile",
   "NAVBAR_ITEMS_REQUESTS": "Requests",
-  "NAVBAR_ITEMS_LOGOUT": "Log out"
+  "NAVBAR_ITEMS_LOGOUT": "Log out",
+  "DATE_YESTERDAY": "Yesterday",
+  "SEARCH_NOTHING_FOUND": "Nothing found..."
 }

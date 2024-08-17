@@ -14,6 +14,12 @@ export const protectedRoutes: RouteObject = {
         {
           path: Routes.chats,
           element: <ChatsPage />,
+          children: [
+            {
+              path: "/chats/:id",
+              element: <></>,
+            },
+          ],
         },
         {
           path: Routes.settings,
